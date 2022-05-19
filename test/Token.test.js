@@ -11,12 +11,14 @@ const Token = artifacts.require('./Token')
 
 
 
-contract('Token', (accounts,receiver,deployer)=>{
+contract('Token', ()=>{
     const name = 'Boogiereum Token'
     const symbol = 'BOOGIE'
     const decimals = '18'
     const totalSupply = tokens(1000000).toString()
     let token
+
+    // beforeEach function will run before every tests
     beforeEach(async()=>{
          //Fetch the deployed contract  for our test cases
           token = await Token.new()  
@@ -101,4 +103,6 @@ contract('Token', (accounts,receiver,deployer)=>{
             })
         })
     })
+
+    // Aproving tokens so that onyone/exchanges can send tokens from user's account
 })
